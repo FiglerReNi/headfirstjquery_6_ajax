@@ -1,0 +1,50 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+#main {
+    color: #111111;
+    width: 500px;
+    margin: 8px 25px;
+    padding: 10px 20px 20px 20px;
+    background: dimgrey;
+}
+
+#main > ul > li {
+    list-style: none;
+    float: left;
+}
+
+a {
+    display: block;
+    padding: 6px 10px;
+    text-decoration: none;
+    margin: 1px 1px 1px 0;
+    color: #FFFFFF;
+    background: #444444;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #FFFFFF;
+    background: #111111;
+}
+
+a.selected {
+    color:#000000;
+    background:snow;
+    border-bottom:1px solid snow;
+    cursor:default;
+}
+
+#main div {
+    padding:10px 10px 8px 10px;
+    clear:left;
+    background:snow;
+    height: 300px
+}
+
+#updateTime {
+    color: #FFFFFF;
+}
