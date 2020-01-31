@@ -1,12 +1,15 @@
 $(document).ready(function(){
-    getXMLRacers();
-    startAjaxCalls();
+
+    var repeat = true;
+    var FREQ = 10000;
 
     function startAjaxCalls(){
-        setTimeout(function () {
-            getXMLRacers();
-            startAjaxCalls();
-        }, 10000)
+        if(repeat) {
+            setTimeout(function () {
+                startAjaxCalls();
+                getXMLRacers();
+            }, FREQ)
+        }
     }
 
     function getXMLRacers() {
@@ -33,19 +36,44 @@ $(document).ready(function(){
         });
     }
 
-    function getTime() {
-        var date = new Date();
-        var hour = date.getHours();
-        var minute = date.getMinutes().toString();
-        var second = date.getSeconds().toString();
-        var day = '';
-        (hour < 12 ) ? day = 'AM' : day = 'PM';
-        (hour === 0) ? hour = 12 : hour;
-        (hour > 12) ? hour = hour - 12 : hour;
-        if(minute.length == 1){minute = '0' + minute}
-        if(second.length == 1){second = '0' + second}
-        $('#updateTime').html(hour + ':' + minute + ':' + second + ' ' + day)
+    //with php
+    function getTime(){
+        $('#updateTime').load("race_new.php");
     }
+
+    // with javascript
+    // function getTime() {
+    //     var date = new Date();
+    //     var hour = date.getHours();
+    //     var minute = date.getMinutes().toString();
+    //     var second = date.getSeconds().toString();
+    //     var day = '';
+    //     (hour < 12 ) ? day = 'AM' : day = 'PM';
+    //     (hour === 0) ? hour = 12 : hour;
+    //     (hour > 12) ? hour = hour - 12 : hour;
+    //     if(minute.length == 1){minute = '0' + minute}
+    //     if(second.length == 1){second = '0' + second}
+    //     $('#updateTime').html(hour + ':' + minute + ':' + second + ' ' + day)
+    // }
+
+    function showFrequency(){
+        $('#freq').html('Page refreshes every ' + FREQ/1000 + " second(s)!")
+    }
+
+    $("#updateStop").click(function(){
+        repeat = false;
+        $('#freq').html("Updates paused!");
+    });
+
+    $("#updateStart").click(function(){
+        repeat = true;
+        startAjaxCalls();
+        showFrequency();
+    });
+
+    showFrequency();
+    getXMLRacers();
+    startAjaxCalls();
 });
 
 //setInterval - csak rendszeresen ismétlődő időzítésre jó, és akor is újra hívja a functiont, ha az első kör még nem is fejeződött be,
