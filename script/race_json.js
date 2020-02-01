@@ -76,6 +76,6 @@ $(document).ready(function(){
     });
 
     showFrequency();
-    getDbRacers();;
+    getDbRacers();
     startAjaxCalls();
 });
