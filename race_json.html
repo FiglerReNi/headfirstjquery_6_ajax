@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2011 Race Finishers</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/race.css">
+</head>
+<body>
+<header><h2>2020 Race Finishers</h2></header>
+<div id="main">
+    <ul class="idTabs">
+        <li><a href="#male">Male Finishers</a></li>
+        <li><a href="#female">Female Finishers</a></li>
+        <li><a href="#finishers">All Finishers</a></li>
+        <li><a href="#new">Add New Finishers</a></li>
+    </ul>
+    <div id="male">
+        <h4>Male Finishers</h4>
+        <ul id="male_all">
+        </ul>
+    </div>
+    <div id="female">
+        <h4>Female Finishers</h4>
+        <ul id="female_all">
+        </ul>
+    </div>
+    <div id="finishers">
+        <h4>All Finishers</h4>
+        <ul id="finishers_all">
+        </ul>
+    </div>
+    <div id="new">
+        <h4>Add New Finisher</h4>
+        <div class="column">
+            <form name="addRunner" id="addRunner" action="race_json.php" method="post">
+                <div class='row'>
+                    <label class="col-4 col-sm-4">First Name:</label>
+                    <input class="col-4 col-sm-4" type="text" id="txtFirstName" name="txtFirstName"/>
+                    <div class='w-100'></div>
+                    <label class="col-4 col-sm-4">Last Name:</label>
+                    <input class="col-4 col-sm-4" type="text" id="txtLastName" name="txtLastName"/>
+                    <div class='w-100'></div>
+                    <label class="col-4 col-sm-4">Gender:</label>
+                    <select class="col-4 col-sm-4" id="ddlGender" name="ddlGender">
+                        <option value="">---Please select---</option>
+                        <option value="f">Female</option>
+                        <option value="m">Male</option>
+                    </select>
+                    <div class='w-100'></div>
+                    <label class="col-4 col-sm-4">Finish Time:</label>
+                    <input class="col-2 col-sm-2" type="text" id="txtMinute" name="txtMinute" maxlength="2" placeholder="Minute"/>
+                    <input class="col-2 col-sm-2" type="text" id="txtSecond" name="txtSecond" maxlength="2" placeholder="Second"/>
+                    <div class='w-100'></div>
+                    <label class="col-4 col-sm-4"></label>
+                    <button class="col-4 col-sm-4" type="submit" id="btnSave" name="btnSave">Add Runner</button>
+                    <input type="hidden" name="action" id="action" value="addRunners"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer>
+    <h5>Congratulations to all our finishers!</h5>
+    <input type="button" id="updateStart" value="Start"/>
+    <input type="button" id="updateStop" value="Stop"/><br><br>
+    <span id="freq"></span></br></br>
+    <span>Last updated:</span>
+    <span id="updateTime"></span>
+</footer>
+<script src="script/jquery-3.4.1.js"></script>
+<script src="script/jquery.idTabs.js"></script>
+<script src="script/race_json.js"></script>
+</body>
+</html>

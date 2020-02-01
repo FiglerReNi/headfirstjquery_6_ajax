@@ -5,7 +5,7 @@ body {
 
 #main {
     color: #111111;
-    width: 500px;
+    width: 700px;
     margin: 8px 25px;
     padding: 10px 20px 20px 20px;
     background: dimgrey;
@@ -38,7 +38,7 @@ a.selected {
     cursor:default;
 }
 
-#main div {
+#main > div {
     padding:10px 10px 8px 10px;
     clear:left;
     background:snow;
